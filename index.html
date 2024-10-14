@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #4d67ec, #cf3512);
+            color: white;
+        }
+        h1 {
+            margin-bottom: 30px;
+            margin-left: 209px;
+            font-size: 65px;
+            font-weight: 900;
+            color: darkred;
+            margin-top: 50px;
+        }
+        #Input1 {
+            margin: 20px 0;
+            padding: 10px;
+            border: none;
+            height: 50px;
+            width: 250px;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            margin-left: 480px;
+            text-align: center;
+            border: 20px solid navy;
+            background-color: aquamarine;
+        }
+        #Input1:focus{
+            border: 4px linear-gradient( #4d67ec, #cf3512);
+        }
+        #p {
+            margin-top: 20px;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            width: fit-content;
+            margin-left: 429px;
+        }
+        .container{
+            width: 1290px;
+            border: 30px solid black;
+            height: 590px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Select Your Date of Birth</h1>
+    <input type="date" id="Input1"/><br><br><br><br>
+    <div id="p">Your birthday and year will be displayed here</div>
+    </div>
+
+    <script>
+        let Input1 = document.getElementById('Input1');
+        let p = document.getElementById('p');
+
+        Input1.addEventListener('change', function() {
+            let selectedDate = new Date(Input1.value);
+            let options = { month: 'long', day: 'numeric' };
+            let birthday = selectedDate.toLocaleDateString(undefined, options);
+            let birthYear = selectedDate.getFullYear();
+            p.innerHTML = `Your birthday is coming from <strong>${birthday}</strong>, you birth year is coming from <strong>${birthYear}</strong>`;
+        });
+    </script>
+
+</body>
+</html>
